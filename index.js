@@ -1,5 +1,6 @@
 var express = require("express");
 var pug = require("pug");
+var bcrypt=
 
 var app = express();
 
