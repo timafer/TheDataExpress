@@ -1,7 +1,7 @@
 var express = require("express");
 var pug = require("pug");
-var cookieParser = require("cookieParser");
-var expressSession = require("expressSession");
+var cookieParser = require("cookie-parser");
+var expressSession = require("express-session");
 
 var app = express();
 
