@@ -1,0 +1,9 @@
+footer{
+    margin: 0px;
+    align-content: center;
+}
+#footerContent{
+    margin: 0px;
+    width: 100px;
+    background: Gray;
+}
