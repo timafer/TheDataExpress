@@ -1,9 +1,12 @@
-var express = require("express");
-var pug = require("pug");
-var cookieParser = require("cookie-parser");
-var expressSession = require("express-session");
+var express = require("express"),
+    pug = require("pug"),
+    cookieParser = require("cookie-parser"),
+    expressSession = require("express-session"),
+    bodyparser=require('body-parser');
+
 
 var app = express();
+var urlencodedParser=bodyparser.urlencoded({extended:false});
 
 app.set("view engine", "pug");
 app.set("views", __dirname + "/views");
@@ -24,6 +27,12 @@ app.get("/:page", function(req, res) {
     res.render(req.params.page, {
         title: req.params.page
     });
+});
+app.post('/acountcreate',urlencodedParser,function(req,res){
+    res.render('index',req.body)
+});
+app.post('/login',urlencodedParser,function(req,res){
+    res.render('index',req.body)
 });
 
 app.listen(3000);

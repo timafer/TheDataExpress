@@ -1,0 +1,17 @@
+extends layout
+block content
+    h3 Account Create
+        form(id='form' method='post' action='/')
+            label UserName
+            input(type='text' name='Name')
+            br
+            label Password
+            input(type='text' name='Pass')
+            br
+            label Email
+            input(type='text' name='Email')
+            br
+            label Age  
+            input(type='text' name='Age')
+            br
+            input(type='submit' value='submit')
