@@ -2,11 +2,12 @@ var express = require("express"),
     pug = require("pug"),
     cookieParser = require("cookie-parser"),
     expressSession = require("express-session"),
-    bodyparser=require('body-parser');
+    route = require('./routes/routes.js'),
+    bodyParser=require('body-parser');
 
 
 var app = express();
-var urlencodedParser=bodyparser.urlencoded({extended:false});
+var urlencodedParser = bodyParser.urlencoded({extended:true});
 
 app.set("view engine", "pug");
 app.set("views", __dirname + "/views");
@@ -17,22 +18,15 @@ app.use(expressSession({
     resave: true
 }));
 
-app.get("/", function(req, res) {
-    res.render("index", {
-        title: "Homepage"
-    });
-});
 
-app.get("/:page", function(req, res) {
-    res.render(req.params.page, {
-        title: req.params.page
-    });
-});
-app.post('/acountcreate',urlencodedParser,function(req,res){
-    res.render('index',req.body)
-});
-app.post('/login',urlencodedParser,function(req,res){
-    res.render('index',req.body)
-});
+app.get("/", route.index);
+app.get("/acountcreate", route.acountcreate);
+app.get("/login", route.login);
+app.get("/adminview", route.adminview);
+//app.get("accountedit",route.accountedit);
+//
+//app.post('/acountcreate',urlencodedParser,route.createPerson);
+//app.post('/login',urlencodedParser,route.login);
+//app.post('/accountedit',urlencodedParser,route.edit);
 
 app.listen(3000);
