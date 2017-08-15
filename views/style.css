@@ -1,13 +1,23 @@
+/*
+    Main Colors:
+        Navy Blue   - #18121E
+        Gunmetal    - #233237
+        Rusty Red   - #984B43
+        Warm Yellow - #EAC67A
+*/
+
+
 html{
-    background: black;
+    background: #18121E;
     color: white;
 }
 #headertop {
-    background: gray;
+    background: #233237;
     height: 60px;
     text-align: center;
     display:table;
     width:100%;
+    color: #EAC67A;
 }
 #logo {
     display: table-cell;
@@ -17,16 +27,16 @@ html{
 }
 
 #navbar {
-    background: #C22425;
+    background: #984B43;
     height: 20px;
     color: white;
 }
 
 footer {
-    background: linear-gradient(yellow, red);
+    background: #233237;
     height: 20px;
     position: absolute;
-    color:black;
+    color:white;
     text-align: center;
     display:table;
     left:0;
