@@ -1,0 +1,40 @@
+html{
+    background: black;
+    color: white;
+}
+#headertop {
+    background: gray;
+    height: 60px;
+    text-align: center;
+    display:table;
+    width:100%;
+}
+#logo {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 28pt;
+    color: white;
+}
+
+#navbar {
+    background: #C22425;
+    height: 20px;
+    color: white;
+}
+
+footer {
+    background: linear-gradient(yellow, red);
+    height: 20px;
+    position: absolute;
+    color:black;
+    text-align: center;
+    display:table;
+    left:0;
+    bottom:0;
+    width: 100%;
+}
+
+#footerContent {
+    display: table-cell;
+    vertical-align: middle;
+}
