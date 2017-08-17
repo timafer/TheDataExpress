@@ -25,7 +25,7 @@ app.get("/login", route.login);
 app.get("/adminview", route.adminview);
 app.get("/accountedit",route.accountedit);
 app.post("/acountcreate",urlencodedParser,route.createPerson);
-app.post("/login",urlencodedParser,route.login);
+app.post("/login",urlencodedParser,route.loginpost);
 app.post("/accountedit/:id",urlencodedParser,route.edit);
 app.post("/adminview/:i",urlencodedParser,route.delete);
 app.get('/delete/:id', route.delete);

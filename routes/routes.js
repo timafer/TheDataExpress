@@ -44,7 +44,6 @@ exports.adminview = function (req, res) {
       title: 'Account List',
       people: person
     });
-        console.log(person);
   });
 };
 exports.accountedit = function (req, res) {
@@ -58,7 +57,6 @@ exports.accountedit = function (req, res) {
   };
 
 exports.createPerson = function (req, res) {
-    console.log('create enter');
   var person = new Person({
     UserName: req.body.UserName,
     Password: req.body.Password,
@@ -69,6 +67,7 @@ exports.createPerson = function (req, res) {
     Ans2: req.body.Ans2,
     Ans3: req.body.Ans3,
   });
+    console.log(Person);
   person.save(function (err, person) {
     if (err) return console.error(err);
     console.log(req.body.name + ' added');
@@ -76,7 +75,12 @@ exports.createPerson = function (req, res) {
   res.redirect('/');
 };
 exports.loginpost=function (req, res) {
-    Person.find
+    Person.find(function (err, person) {
+    if (err) return console.error(err);
+    if(Person.Password==req.body.Password&&Person.UserName==req.body.UserName){
+        console.log('You are loged in')
+    }  
+})
     res.redirect('/');
 };
 exports.edit=function (req, res) {
