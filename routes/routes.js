@@ -78,7 +78,7 @@ exports.loginpost=function (req, res) {
     Person.find(function (err, person) {
     if (err) return console.error(err);
     if(Person.Password==req.body.Password&&Person.UserName==req.body.UserName){
-        console.log('You are loged in')
+        console.log('You are logged in')
     }  
 })
     res.redirect('/');

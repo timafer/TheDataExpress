@@ -1,4 +1,6 @@
 extends layout
+block special-css
+    link(rel="stylesheet", href="./login.css")
 block content
     h3 Login
         form(id='form' method='post' action='/login')

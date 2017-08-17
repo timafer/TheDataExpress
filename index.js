@@ -5,7 +5,6 @@ var express = require("express"),
     route = require('./routes/routes.js'),
     bodyParser=require('body-parser');
 
-
 var app = express();
 var urlencodedParser = bodyParser.urlencoded({extended:true});
 
@@ -17,7 +16,6 @@ app.use(expressSession({
     saveUninitialized: true,
     resave: true
 }));
-
 
 app.get("/", route.index);
 app.get("/acountcreate", route.acountcreate);
