@@ -23,10 +23,12 @@ app.get("/", route.index);
 app.get("/acountcreate", route.acountcreate);
 app.get("/login", route.login);
 app.get("/adminview", route.adminview);
-//app.get("accountedit",route.accountedit);
-//
-//app.post('/acountcreate',urlencodedParser,route.createPerson);
-//app.post('/login',urlencodedParser,route.login);
-//app.post('/accountedit',urlencodedParser,route.edit);
+app.get("/accountedit",route.accountedit);
+app.post("/acountcreate",urlencodedParser,route.createPerson);
+app.post("/login",urlencodedParser,route.login);
+app.post("/accountedit/:id",urlencodedParser,route.edit);
+app.post("/adminview/:i",urlencodedParser,route.delete);
+app.get('/delete/:id', route.delete);
+app.post("/", route.index);
 
 app.listen(3000);
