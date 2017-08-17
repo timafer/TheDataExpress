@@ -1,40 +1,21 @@
-html{
-    background: black;
-    color: white;
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
 }
+
 #headertop {
-    background: gray;
-    height: 60px;
+    height: 50px;
+    /* background-color: #3F3F40; */
+    background: linear-gradient(0deg, #3F3F40, #5E5E5E);
+    display: table;
     text-align: center;
-    display:table;
-    width:100%;
-}
-#logo {
-    display: table-cell;
-    vertical-align: middle;
-    font-size: 28pt;
-    color: white;
-}
-
-#navbar {
-    background: #C22425;
-    height: 20px;
-    color: white;
-}
-
-footer {
-    background: linear-gradient(yellow, red);
-    height: 20px;
-    position: absolute;
-    color:black;
-    text-align: center;
-    display:table;
-    left:0;
-    bottom:0;
     width: 100%;
 }
 
-#footerContent {
+#logo {
+    color: white;
+    text-decoration: none;
     display: table-cell;
     vertical-align: middle;
+    font-size: 20pt;
 }
