@@ -18,11 +18,11 @@ app.use(expressSession({
 }));
 
 app.get("/", route.index);
-app.get("/acountcreate", route.acountcreate);
+app.get("/accountcreate", route.accountcreate);
 app.get("/login", route.login);
 app.get("/adminview", route.adminview);
 app.get("/accountedit",route.accountedit);
-app.post("/acountcreate",urlencodedParser,route.createPerson);
+app.post("/accountcreate",urlencodedParser,route.createPerson);
 app.post("/login",urlencodedParser,route.loginpost);
 app.post("/accountedit/:id",urlencodedParser,route.edit);
 app.post("/adminview/:i",urlencodedParser,route.delete);
