@@ -1,4 +1,5 @@
 extends layout
+
 block content
     table(class='gridtable')
         tr
@@ -11,15 +12,15 @@ block content
             th Ans2 
             th Ans3 
             th 
-    each item in people
-        tr
-            td #{item.id}
-            td #{item.UserName} 
-            td #{item. AcountType}  
-            td #{item.Email}    
-            td #{item.Age}  
-            td #{item.Ans1} 
-            td #{item.Ans2} 
-            td #{item.Ans3} 
-            td
-                a(href='/delete/' + item.id) Delete
+        each item in people
+            tr
+                td #{item.id}
+                td #{item.UserName} 
+                td #{item. AcountType}  
+                td #{item.Email}    
+                td #{item.Age}  
+                td #{item.Ans1} 
+                td #{item.Ans2} 
+                td #{item.Ans3} 
+                td 
+                    a(href='/delete/' + item.id) Delete
