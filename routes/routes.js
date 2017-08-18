@@ -31,8 +31,8 @@ exports.index = function (req, res) {
     });
   });
 };
-exports.acountcreate = function (req, res) {
-    res.render('acountcreate');
+exports.accountcreate = function (req, res) {
+    res.render('accountcreate');
   };
 exports.login = function (req, res) {
     res.render('login');
