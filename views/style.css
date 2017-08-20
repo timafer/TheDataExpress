@@ -19,3 +19,49 @@ body {
     vertical-align: middle;
     font-size: 20pt;
 }
+ul.graph
+{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+	
+ul.graph li
+{
+	margin-bottom: .5em;
+	padding: .2em;
+	background: #600;
+	color: #fff;
+}
+	
+ul.graph li.percent20
+{
+	background: url(graph20.jpg) repeat-y 20% 0;
+}
+	
+ul.graph li.percent40
+{
+	background: url(graph40.jpg) repeat-y 40% 0;
+}
+canvas{
+    height: 300px;
+    width: 400px;
+    border-style: solid;
+    border-color: black;
+    border-width: thick;
+    border-right: none;
+    border-top: none;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20px;
+}
+#canvasDiv{
+    text-align: right;
+    font-size: 24px;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-bottom: 60px;
+    text-decoration: underline;
+    margin-left: 30%;    
+    margin-right: 20%;
+}
