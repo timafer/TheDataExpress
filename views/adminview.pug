@@ -1,25 +1,28 @@
 extends layout
+block special_css
+    link(rel="stylesheet", href="./adminview.css")
+
 block content
     table(class='gridtable')
         tr
-            th Id
-            th UserName
-            th Account type
-            th email
-            th Age
-            th Ans1
-            th Ans2
-            th Ans3
+            th Id   
+            th UserName 
+            th Account type 
+            th email    
+            th Age  
+            th Ans1 
+            th Ans2 
+            th Ans3 
             th 
-    each item in people
-        tr
-            td
-            td #{item.UserName}
-            td #{item.Admin}
-            td #{item.Email}
-            td #{item.Age}
-            td #{item.Ans1}
-            td #{item.Ans2}
-            td #{item.Ans3}
-            td
-                a(href='/delete/' + item.id) Delete
+        each item in people
+            tr
+                td #{item.id}
+                td #{item.UserName} 
+                td #{item. AcountType}  
+                td #{item.Email}    
+                td #{item.Age}  
+                td #{item.Ans1} 
+                td #{item.Ans2} 
+                td #{item.Ans3} 
+                td 
+                    a(href='/delete/' + item.id) Delete

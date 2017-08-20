@@ -31,8 +31,8 @@ exports.index = function (req, res) {
     });
   });
 };
-exports.acountcreate = function (req, res) {
-    res.render('acountcreate');
+exports.accountcreate = function (req, res) {
+    res.render('accountcreate');
   };
 exports.login = function (req, res) {
     res.render('login');
@@ -44,7 +44,6 @@ exports.adminview = function (req, res) {
       title: 'Account List',
       people: person
     });
-        console.log(person);
   });
 };
 exports.accountedit = function (req, res) {
@@ -58,10 +57,9 @@ exports.accountedit = function (req, res) {
   };
 
 exports.createPerson = function (req, res) {
-    console.log('create enter');
   var person = new Person({
-    UserName: req.body.UserName,
-    Password: req.body.Password,
+    UserName: req.body.Name,
+    Password: req.body.Pass,
     AcountType: "Admin",
     Email:req.body.Email,
     Age: req.body.Age,
@@ -69,6 +67,7 @@ exports.createPerson = function (req, res) {
     Ans2: req.body.Ans2,
     Ans3: req.body.Ans3,
   });
+    console.log(person);
   person.save(function (err, person) {
     if (err) return console.error(err);
     console.log(req.body.name + ' added');
@@ -76,8 +75,17 @@ exports.createPerson = function (req, res) {
   res.redirect('/');
 };
 exports.loginpost=function (req, res) {
-    Person.find
-    res.redirect('/');
+    var i=0;
+    Person.findOne({UserName:req.body.Name,Password:req.body.Pass},function(err,person){
+        if (err) return console.error(err);
+        if(person!=null){
+        console.log('You are loged in as '+req.body.Name)
+        res.redirect('/');
+        }
+        else{
+           res.redirect('/login'); 
+        }
+    });   
 };
 exports.edit=function (req, res) {
     res.redirect('/');
@@ -85,6 +93,6 @@ exports.edit=function (req, res) {
 exports.delete=function (req, res) {
 Person.findByIdAndRemove(req.params.id, function (err, person) {
     if (err) return console.error(err);
-    res.redirect('/');
+    res.redirect('/adminview');
   });
 };

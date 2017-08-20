@@ -5,7 +5,6 @@ var express = require("express"),
     route = require('./routes/routes.js'),
     bodyParser=require('body-parser');
 
-
 var app = express();
 var urlencodedParser = bodyParser.urlencoded({extended:true});
 
@@ -18,14 +17,13 @@ app.use(expressSession({
     resave: true
 }));
 
-
 app.get("/", route.index);
-app.get("/acountcreate", route.acountcreate);
+app.get("/accountcreate", route.accountcreate);
 app.get("/login", route.login);
 app.get("/adminview", route.adminview);
 app.get("/accountedit",route.accountedit);
-app.post("/acountcreate",urlencodedParser,route.createPerson);
-app.post("/login",urlencodedParser,route.login);
+app.post("/accountcreate",urlencodedParser,route.createPerson);
+app.post("/login",urlencodedParser,route.loginpost);
 app.post("/accountedit/:id",urlencodedParser,route.edit);
 app.post("/adminview/:i",urlencodedParser,route.delete);
 app.get('/delete/:id', route.delete);
