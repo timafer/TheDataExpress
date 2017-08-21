@@ -93,14 +93,43 @@ exports.adminview = function (req, res) {
 };
 
 exports.accountedit = function (req, res) {
-  Person.findById(req.params.id, function (err, person) {
-    if (err) return console.error(err);
-    res.render('accountedit', {
-      title: 'Edit Account',
-      person: person
+  if (req.session.user) {
+    Person.find({UserName:req.session.user.UserName}, function(err, person){
+      if (err) return console.error(err);
+      res.render("edit", {
+        user: req.session.user
+      });
     });
-  });
+  } else {
+    res.redirect("/");
+  }
 };
+
+exports.saveEdit = function(req, res) {
+  if (req.session.user) {
+    console.log(req.session.user.Name);
+    Person.findOne({UserName:req.session.user.UserName}, function(err, person){
+      if (err) return console.error(err);
+      if (person) {
+        person.Email = req.body.Email;
+        person.Age = req.body.Age;
+        person.Ans1 = req.body.Ans1;
+        person.Ans2 = req.body.Ans2;
+        person.Ans3 = req.body.Ans3;
+        person.save(function(err, person){
+          if (err) return console.error(err);
+          console.log("Updated user!");
+          res.redirect("/");
+        });
+      } else {
+        console.log("Could not find person to update?");
+        res.redirect("/");
+      }
+    });
+  } else {
+    res.redirect("/");
+  }
+}
 
 exports.createPerson = function (req, res) {
   var person = new Person({
@@ -144,8 +173,6 @@ exports.loginpost=function (req, res) {
     Person.findOne({UserName:req.body.Name,Password:req.body.Pass},function(err,person){
         if (err) return console.error(err);
         if(person!=null){
-          console.log(person);
-          console.log('You are logged in as '+req.body.Name)
           req.session.user = person;
           res.redirect('/');
         }

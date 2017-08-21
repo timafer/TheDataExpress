@@ -1,0 +1,64 @@
+
+
+#pageTitle {
+    text-align: center;
+    font-size: 20pt;
+}
+
+form {
+    margin-top:50px;
+    font-size: 16pt;
+    text-align: center;
+}
+
+form label {
+    display: inline-block;
+    width: 125px;
+    text-align: right;
+    margin-right: 5px;
+}
+
+.formInput {
+    margin: 15px 0px;
+}
+
+.formInput input {
+    height: 25px;
+    border-radius: 3px;
+    font-size: 14pt;
+    width: 200px;
+}
+
+.question {
+    font-size: 14pt;
+    width: 45%;
+    margin: 15px auto;
+}
+
+.question p {
+    margin-top: 2px;
+}
+
+.question label {
+    width: 500px;
+    text-align: left;
+}
+
+.answer label {
+    margin-left: 10px;
+}
+.answer input {
+    margin-left: 30px;
+}
+
+#submitButton {
+    height: 35px;
+    font-size: 13pt;
+    margin-top: 15px;
+    margin-bottom: 35px;
+    border-radius: 10px;
+}
+
+.center {
+    text-align: center;
+}

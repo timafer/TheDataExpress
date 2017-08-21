@@ -3,6 +3,7 @@ block content
     div(id="userPanel")
         if username
             p You are logged in as #{username}!
+            a(href="/accountedit") Edit Account
             a(href="/logout") Logout
         else
             p You are not logged in!

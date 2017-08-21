@@ -31,7 +31,7 @@ app.get("/adminview", route.adminview);
 app.post("/adminview/:i",urlencodedParser,route.delete);
 
 app.get("/accountedit",route.accountedit);
-app.post("/accountedit/:id",urlencodedParser,route.edit);
+app.post("/accountedit",urlencodedParser, route.saveEdit);
 
 app.get('/delete/:id', route.delete);
 

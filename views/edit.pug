@@ -1,7 +1,8 @@
 extends layout
 block extra_header
-    link(rel="stylesheet" href="./accountcreate.css")
+    link(rel="stylesheet" href="./accountedit.css")
 block content
+    h3(class="center") Editing #{user.UserName}'s details
     form(id='form' method='post' action='/accountedit')
         div(class="formInput")
             label Email:    
