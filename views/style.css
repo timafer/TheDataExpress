@@ -67,6 +67,10 @@ canvas{
     margin-right: 20%;
 }
 
+.hidden {
+    visibility: collapse;
+}
+
 #gotoAdmin {
     text-decoration: none;
     text-align: right;
