@@ -17,6 +17,8 @@ app.use(expressSession({
     resave: true
 }));
 
+app.use(cookieParser("some passphrase?"));
+
 app.get("/", route.index);
 
 app.get("/accountcreate", route.accountcreate);

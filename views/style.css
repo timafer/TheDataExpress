@@ -100,3 +100,7 @@ canvas{
 #userPanel p {
     font-size: 14pt;
 }
+
+#lastVisit {
+    text-align: center;
+}
