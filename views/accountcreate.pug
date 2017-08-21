@@ -1,17 +1,79 @@
 extends layout
+block extra_header
+    link(rel="stylesheet" href="./accountcreate.css")
+    script(src="./accountcreate.js")
 block content
-    h3 Account Create
-        form(id='form' method='post' action='/acountcreate')
-            label UserName 
-            input(type='text' name='Name')
+    form(id='form' method='post' action='/accountcreate')
+        div(class="formInput")
+            label Username:  
+            input(id="uname" type='text' name='Name' required pattern="^(\\w|\\d){2,}$")
             br
-            label Password 
-            input(type='text' name='Pass')
+        div(class="formInput")
+            label Password:  
+            input(id="pwd" type='password' name='Pass' required pattern="^(.){6,}$")
             br
-            label Email 
-            input(type='text' name='Email')
+        div(class="formInput")
+            label Email:    
+            input(id="email" type='email' name='Email' required)
+        div(class="formInput")
+            label Age:   
+            input(id="age" type='number' name='Age' required min="13" max="110" step="1")
             br
-            label Age  
-            input(type='text' name='Age')
-            br
-            input(type='submit' value='submit')
+        div(class="question")
+            fieldset
+                legend Question 1
+                p When two particles are entangled and it is observed that one has its spin up, how long does it take for the other’s spin to be down?
+                div(class="answer")
+                    input(id="q0-a" name="q0" type="radio")
+                    label(for="q0-a") 1 nanosecond
+                br
+                div(class="answer")
+                    input(id="q0-b" name="q0" type="radio")
+                    label(for="q0-b") However long it takes light to travel between them
+                br
+                div(class="answer")
+                    input(id="q0-c" name="q0" type="radio")
+                    label(for="q0-c") Instantaneously
+                br
+                div(class="answer")
+                    input(id="q0-d" name="q0" type="radio")
+                    label(for="q0-d") 1 microsecond
+        div(class="question")
+            fieldset
+                legend Question 2
+                p What was the first antiparticle to be discovered?
+                div(class="answer")
+                    input(id="q1-a" name="q1" type="radio")
+                    label(for="q1-a") Positron
+                br
+                div(class="answer")
+                    input(id="q1-b" name="q1" type="radio")
+                    label(for="q1-b") Antineutrino
+                br
+                div(class="answer")
+                    input(id="q1-c" name="q1" type="radio")
+                    label(for="q1-c") Antiproton
+                br
+                div(class="answer")
+                    input(id="q1-d" name="q1" type="radio")
+                    label(for="q1-d") X-ray
+        div(class="question")
+            fieldset
+                legend Question 3
+                p The square of a particle's wave function describes the probability of what about the particle?
+                div(class="answer")
+                    input(id="q2-a" name="q2" type="radio")
+                    label(for="q2-a") That it has a specific spin
+                br
+                div(class="answer")
+                    input(id="q2-b" name="q2" type="radio")
+                    label(for="q2-b") That it will decay
+                br
+                div(class="answer")
+                    input(id="q2-c" name="q2" type="radio")
+                    label(for="q2-c") That it will disappear
+                br
+                div(class="answer")
+                    input(id="q2-d" name="q2" type="radio")
+                    label(for="q2-d") That it is at a particular place
+        input(type='submit' value='Create Account' id="submitButton")

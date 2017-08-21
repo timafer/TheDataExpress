@@ -19,3 +19,8 @@ body {
     vertical-align: middle;
     font-size: 20pt;
 }
+
+.error {
+    font-size: 12pt;
+    color: red;
+}

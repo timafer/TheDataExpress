@@ -4,6 +4,7 @@ mongoose.connect('mongodb://localhost/data');
 
 var mdb = mongoose.connection;
 mdb.on('error', console.error.bind(console, 'connection error:'));
+
 mdb.once('open', function (callback) {
 
 });
@@ -19,7 +20,6 @@ var personSchema = mongoose.Schema({
   Ans3:String
 });
 
-
 var Person = mongoose.model('People_Collection', personSchema);
 
 exports.index = function (req, res) {
@@ -31,13 +31,19 @@ exports.index = function (req, res) {
     });
   });
 };
+
 exports.accountcreate = function (req, res) {
     res.render('accountcreate');
-  };
+};
+
 exports.login = function (req, res) {
+    console.log("In login()");
     res.render('login');
-  };
+};
+
 exports.adminview = function (req, res) {
+    console.log("In adminView()");
+  
     Person.find(function (err, person) {
     if (err) return console.error(err);
     res.render('adminview', {
@@ -46,7 +52,10 @@ exports.adminview = function (req, res) {
     });
   });
 };
+
 exports.accountedit = function (req, res) {
+  console.log("In accountEdit()");
+  
     Person.findById(req.params.id, function (err, person) {
     if (err) return console.error(err);
     res.render('accountedit', {
@@ -54,9 +63,10 @@ exports.accountedit = function (req, res) {
       person: person
     });
   });
-  };
+};
 
 exports.createPerson = function (req, res) {
+  console.log("In createPerson()");
   var person = new Person({
     UserName: req.body.Name,
     Password: req.body.Pass,
@@ -74,6 +84,7 @@ exports.createPerson = function (req, res) {
   });
   res.redirect('/');
 };
+
 exports.loginpost=function (req, res) {
     var i=0;
     Person.findOne({UserName:req.body.Name,Password:req.body.Pass},function(err,person){
@@ -87,11 +98,13 @@ exports.loginpost=function (req, res) {
         }
     });   
 };
+
 exports.edit=function (req, res) {
     res.redirect('/');
 };
+
 exports.delete=function (req, res) {
-Person.findByIdAndRemove(req.params.id, function (err, person) {
+  Person.findByIdAndRemove(req.params.id, function (err, person) {
     if (err) return console.error(err);
     res.redirect('/adminview');
   });
