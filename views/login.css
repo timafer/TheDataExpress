@@ -1,0 +1,28 @@
+
+form {
+    margin-top:50px;
+    font-size: 16pt;
+    text-align: center;
+}
+
+form label {
+    display: inline-block;
+    width: 125px;
+    text-align: right;
+    margin-right: 5px;
+}
+
+form input {
+    height: 25px;
+    border-radius: 3px;
+    font-size: 14pt;
+    width: 200px;
+}
+
+#submitButton {
+    height: 35px;
+    font-size: 13pt;
+    margin-top: 15px;
+    margin-bottom: 35px;
+    border-radius: 10px;
+}

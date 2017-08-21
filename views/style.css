@@ -19,8 +19,80 @@ body {
     vertical-align: middle;
     font-size: 20pt;
 }
+ul.graph
+{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+	
+ul.graph li
+{
+	margin-bottom: .5em;
+	padding: .2em;
+	background: #600;
+	color: #fff;
+}
+	
+ul.graph li.percent20
+{
+	background: url(graph20.jpg) repeat-y 20% 0;
+}
+	
+ul.graph li.percent40
+{
+	background: url(graph40.jpg) repeat-y 40% 0;
+}
+canvas{
+    height: 300px;
+    width: 400px;
+    border-style: solid;
+    border-color: black;
+    border-width: thick;
+    border-right: none;
+    border-top: none;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20px;
+}
+#canvasDiv{
+    text-align: center;
+    font-size: 24px;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-top: 15px;
+    margin-bottom: 60px;
+    text-decoration: none;
+    margin-left: 30%;    
+    margin-right: 20%;
+}
 
-.error {
-    font-size: 12pt;
-    color: red;
+#gotoAdmin {
+    text-decoration: none;
+    text-align: right;
+    float: right;
+    color:white;
+    padding: 15px 15px;
+    margin-right: 150px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    background: linear-gradient(0deg, #3F3F40, #5E5E5E);
+}
+
+#userPanel {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#userPanel a {
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(0deg, #3F3F40, #5E5E5E);
+    padding: 8px 15px;
+    border-radius: 10px;
+    margin: 0 5px;
+}
+
+#userPanel p {
+    font-size: 14pt;
 }

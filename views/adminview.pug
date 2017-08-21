@@ -1,5 +1,5 @@
 extends layout
-block special_css
+block extra_header
     link(rel="stylesheet", href="./adminview.css")
 
 block content
@@ -18,7 +18,7 @@ block content
             tr
                 td #{item.id}
                 td #{item.UserName} 
-                td #{item. AcountType}  
+                td #{item.AcountType}  
                 td #{item.Email}    
                 td #{item.Age}  
                 td #{item.Ans1} 

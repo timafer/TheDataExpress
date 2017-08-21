@@ -1,0 +1,12 @@
+.gridtable {
+    border-collapse: collapse;
+    border: 1px solid black;
+    margin: 25px auto;
+}
+
+.gridtable td {
+    border: 1px solid black;
+    min-width: 50px;
+    padding: 5px;
+    text-align: center;
+}

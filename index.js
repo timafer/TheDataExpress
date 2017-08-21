@@ -18,15 +18,23 @@ app.use(expressSession({
 }));
 
 app.get("/", route.index);
+
 app.get("/accountcreate", route.accountcreate);
-app.get("/login", route.login);
-app.get("/adminview", route.adminview);
-app.get("/accountedit",route.accountedit);
 app.post("/accountcreate",urlencodedParser,route.createPerson);
+
+app.get("/logout", route.logout);
+
+app.get("/login", route.login);
 app.post("/login",urlencodedParser,route.loginpost);
-app.post("/accountedit/:id",urlencodedParser,route.edit);
+
+app.get("/adminview", route.adminview);
 app.post("/adminview/:i",urlencodedParser,route.delete);
+
+app.get("/accountedit",route.accountedit);
+app.post("/accountedit/:id",urlencodedParser,route.edit);
+
 app.get('/delete/:id', route.delete);
+
 app.post("/", route.index);
 
 app.listen(3000);

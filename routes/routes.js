@@ -23,13 +23,31 @@ var personSchema = mongoose.Schema({
 var Person = mongoose.model('People_Collection', personSchema);
 
 exports.index = function (req, res) {
-    Person.find(function (err, person) {
-    if (err) return console.error(err);
-    res.render('index', {
-      title: 'Home',
-      people: person
+    var question1 = [0,0,0,0], question2 = [0,0,0,0], question3 = [0,0,0,0];
+    Person.find(function(err, users){
+        if (err) return console.error(err);
+        var answerToIndex = ["A", "B", "C", "D"];
+        for (var i = 0; i < users.length; i++) {
+            var person = users[i];
+            question1[answerToIndex.indexOf(person.Ans1)]++;
+            question2[answerToIndex.indexOf(person.Ans2)]++;
+            question3[answerToIndex.indexOf(person.Ans3)]++;
+        }
     });
-  });
+    if (req.session.user) {
+      var isAdmin = req.session.user.AcountType == "Admin";
+      res.render("index", {
+        username: req.session.user.UserName,
+        admin: isAdmin,
+        questions: {
+          q1:question1,
+          q2:question2,
+          q3:question3
+        }
+      })
+    } else {
+      res.render("index");
+    }
 };
 
 exports.accountcreate = function (req, res) {
@@ -37,26 +55,21 @@ exports.accountcreate = function (req, res) {
 };
 
 exports.login = function (req, res) {
-    console.log("In login()");
     res.render('login');
 };
 
 exports.adminview = function (req, res) {
-    console.log("In adminView()");
-  
     Person.find(function (err, person) {
-    if (err) return console.error(err);
-    res.render('adminview', {
-      title: 'Account List',
-      people: person
+      if (err) return console.error(err);
+      res.render('adminview', {
+        title: 'Account List',
+        people: person
+      });
     });
-  });
 };
 
 exports.accountedit = function (req, res) {
-  console.log("In accountEdit()");
-  
-    Person.findById(req.params.id, function (err, person) {
+  Person.findById(req.params.id, function (err, person) {
     if (err) return console.error(err);
     res.render('accountedit', {
       title: 'Edit Account',
@@ -66,7 +79,6 @@ exports.accountedit = function (req, res) {
 };
 
 exports.createPerson = function (req, res) {
-  console.log("In createPerson()");
   var person = new Person({
     UserName: req.body.Name,
     Password: req.body.Pass,
@@ -77,10 +89,8 @@ exports.createPerson = function (req, res) {
     Ans2: req.body.Ans2,
     Ans3: req.body.Ans3,
   });
-    console.log(person);
   person.save(function (err, person) {
     if (err) return console.error(err);
-    console.log(req.body.name + ' added');
   });
   res.redirect('/');
 };
@@ -90,8 +100,10 @@ exports.loginpost=function (req, res) {
     Person.findOne({UserName:req.body.Name,Password:req.body.Pass},function(err,person){
         if (err) return console.error(err);
         if(person!=null){
-        console.log('You are loged in as '+req.body.Name)
-        res.redirect('/');
+          console.log(person);
+          console.log('You are logged in as '+req.body.Name)
+          req.session.user = person;
+          res.redirect('/');
         }
         else{
            res.redirect('/login'); 
@@ -109,3 +121,8 @@ exports.delete=function (req, res) {
     res.redirect('/adminview');
   });
 };
+
+exports.logout = function(req, res) {
+  req.session.user = null;
+  res.redirect("/");
+}
